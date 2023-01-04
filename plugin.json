@@ -1,0 +1,11 @@
+﻿{
+  "Group": "ConnectApi",
+  "FriendlyName": "ConnectApi Plugin",
+  "SystemName": "ConnectApi",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.50" ],
+  "Author": "usman khan ",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Misc.ConnectApi.dll",
+  "Description": ""
+}

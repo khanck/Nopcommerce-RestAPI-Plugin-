@@ -1,0 +1,84 @@
+﻿@using Nop.Plugin.Misc.ConnectApi
+@using Nop.Plugin.Misc.ConnectApi.Models
+@using Nop.Web.Framework.Models.DataTables
+
+
+
+
+<form asp-controller="HomeController" asp-action="EmployeesList" method="post">
+    <div class="content-header clearfix">
+        <h1 class="float-left">
+            EmployeesList
+        </h1>
+        <div class="float-right">           
+        
+        </div>
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+                <div class="cards-group">
+                    <div class="card card-default card-search">
+                        <div class="card-body">
+                       
+
+                        </div>
+                    </div>
+
+                    <div class="card card-default">
+                        <div class="card-body">
+
+
+
+                            @await Html.PartialAsync("Table", new DataTablesModel
+                            {
+                            Name = "Employees-grid",
+                            UrlRead = new DataUrl("EmployeesList", "HomeController", null),
+                            SearchButtonId = "employee",
+                            Length = Model.PageSize,
+                            LengthMenu = Model.AvailablePageSizes,
+                            Filters = new List<FilterParameter>
+                            {
+                            new FilterParameter(nameof(Model.employee_name))                           
+                            },
+                            ColumnCollection = new List<ColumnProperty>
+                            {
+                        
+                            new ColumnProperty(nameof(ApiResultItemModel.employee_name))
+                            {
+                            Title ="employee_name",
+
+                            },
+                            new ColumnProperty(nameof(ApiResultItemModel.employee_salary))
+                            {
+                            Title = "employee_salary",
+
+                            },
+                     
+                            new ColumnProperty(nameof(ApiResultItemModel.employee_age))
+                            {
+                            Title ="employee_age",
+
+                            }
+
+                            }
+                            })
+
+                            <script>
+                               
+
+                            </script>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</form>
+
+
+
+ 
